@@ -1,0 +1,42 @@
+.signUp{
+    border: 1px solid white;
+    margin: 5% 20% 15% 20%;
+    padding: 3%;
+    border-radius: 5%;
+}
+.signUp-header{
+    font-size: 23px;
+    margin-bottom: 5%;
+    color: cornsilk;
+}
+.submit{
+    width: fit-content;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+label{
+    display: flex;
+    color: cornsilk;
+    font-weight: 500;
+}
+button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 3%;
+}
+button:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
