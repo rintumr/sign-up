@@ -26,9 +26,7 @@ const Validate = (props) =>{
             break;
         case 'password':
             if(props.validate){
-                if((props.value).length<4){
-                    validateMessage = "Password length must be greater than 3"
-                }
+                    validateMessage = "Password must contain atleast 4 alphanumeric characters without space.";
             }
             break;
             case 'confirmPassword':

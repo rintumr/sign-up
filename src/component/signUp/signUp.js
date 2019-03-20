@@ -15,7 +15,7 @@ class SignUp extends Component {
   
         if(event.target.name === "userName"){
             updateState.userName = event.target.value;
-            let enable = ((event.target.value.length>0)? false : true);
+            let enable = ((event.target.value.length>0 && (!updateState.userName.startsWith(" "))) ? false : true);
             updateState.userNameValidate = enable;
             this.props.update(updateState);
         } 
@@ -23,7 +23,7 @@ class SignUp extends Component {
             updateState.email = event.target.value;
             const re = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
             let enable = false;
-            if (re.test(updateState.email) && (event.target.value.length>0)){
+            if (re.test(updateState.email) && (updateState.email>0) && (!updateState.email.startsWith(" "))){
                 enable = false;
             }else{
                 enable = true;
@@ -42,7 +42,9 @@ class SignUp extends Component {
         else if (event.target.name === "password"){
             updateState.password = event.target.value;
             let enableValidation = this.handleVerification(updateState.password,updateState.verifyPassword);
-            let enable = ((event.target.value.length>4)? false : true);
+            let reWhiteSpace = new RegExp(/^\w*$/);
+            console.log("Password",reWhiteSpace.test(event.target.value));
+            let enable = (((event.target.value.length>3) && (reWhiteSpace.test(event.target.value)))? false : true);
             updateState.passwordValidate = enable;
             updateState.confirmPassword = enableValidation;
             this.props.update(updateState);
@@ -80,6 +82,7 @@ class SignUp extends Component {
         let userValues = false;
         let disable = true;
         let user = {...this.props.state.user};
+        console.log("User",user)
         if(!(user.userNameValidate && user.emailValidate && user.confirmEmail && 
             user.passwordValidate && user.confirmPassword && user.contactValidate)){
                 validate = true;

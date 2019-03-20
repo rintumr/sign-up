@@ -30,7 +30,6 @@ class App extends Component {
       };
 
     this.submitHandler = this.submitHandler.bind(this);
-    let message = '';
     }
   
   updateHandler = (value) => {
